@@ -88,6 +88,9 @@
 
 
 
+  <meta property="fb:admins" content="<user_id>" />
+  <meta property="fb:app_id" content="<app_id>" />
+
 
 
 <meta name="description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
@@ -96,7 +99,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/15/gradle学习笔记/index.html">
 <meta property="og:site_name" content="轮子上的猿">
 <meta property="og:description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
-<meta property="og:updated_time" content="2017-05-15T08:40:01.655Z">
+<meta property="og:updated_time" content="2017-05-15T08:47:51.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="gradle学习笔记">
 <meta name="twitter:description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
@@ -139,10 +142,38 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '<app_id>',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 
 
 
 
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c513221895ec531b4263f848c10d45cd";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -296,6 +327,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/15/gradle学习笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count fb-comments-count" data-href="http://yoursite.com/2017/05/15/gradle学习笔记/" itemprop="commentCount">0</span> comments
+                </a>
+              </span>
+            
           
 
           
@@ -340,7 +381,9 @@ compile group: &apos;com.google.code.gson&apos;, name: &apos;gson&apos;, version
 </code></pre></li>
 <li><p>so</p>
 </li>
-<li>aar<h3 id="四、依赖配置"><a href="#四、依赖配置" class="headerlink" title="四、依赖配置"></a>四、依赖配置</h3><h4 id="1-静态依赖"><a href="#1-静态依赖" class="headerlink" title="1.静态依赖"></a>1.静态依赖</h4></li>
+<li>aar</li>
+</ul>
+<h3 id="四、依赖配置"><a href="#四、依赖配置" class="headerlink" title="四、依赖配置"></a>四、依赖配置</h3><h4 id="1-静态依赖"><a href="#1-静态依赖" class="headerlink" title="1.静态依赖"></a>1.静态依赖</h4><ul>
 <li><p>compile是默认的那个，其含义是包含所有的依赖包，即在APK里，compile的依赖会存在。</p>
 </li>
 <li><p>apk的意思是apk中存在，但是不会加入编译中，这个貌似用的比较少。</p>
@@ -383,6 +426,16 @@ ext应该是指后缀为 或者 定义变量同def
 
       
         
+          <div class="social-like">
+            
+
+            
+              <div class="fb_like">
+                <div class="fb-like" data-layout="button_count" data-share="true"></div>
+              </div>
+            
+          </div>
+        
       
 
       
@@ -406,6 +459,13 @@ ext应该是指后缀为 或者 定义变量同def
 
           
   <div class="comments" id="comments">
+    
+      <div class="fb-comments"
+           data-href="http://yoursite.com/2017/05/15/gradle学习笔记/"
+           data-numposts="10"
+           data-width="100%"
+           data-colorscheme="light">
+      </div>
     
   </div>
 
