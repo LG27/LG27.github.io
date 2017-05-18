@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -107,7 +107,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -396,6 +396,22 @@ ext应该是指后缀为 或者 定义变量同def
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="LG27 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -529,6 +545,24 @@ ext应该是指后缀为 或者 定义变量同def
 
         
         
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              前方高能
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://www.liaohuqiu.net/cn/" title="秋百万" target="_blank">秋百万</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://droidyue.com/" title="技术小黑屋" target="_blank">技术小黑屋</a>
+                </li>
+              
+            </ul>
+          </div>
+        
 
         
 
@@ -583,7 +617,7 @@ ext应该是指后缀为 或者 定义变量同def
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -662,13 +696,6 @@ ext应该是指后缀为 或者 定义变量同def
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
