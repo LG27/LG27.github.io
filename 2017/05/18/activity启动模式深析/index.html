@@ -90,19 +90,19 @@
 
 
 
-<meta name="description" content="standard：标准模式  任何activity都会新建，按生命周期执行 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果  启动不同的任务栈">
+<meta name="description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
 <meta property="og:type" content="article">
 <meta property="og:title" content="activity启动模式分析">
 <meta property="og:url" content="http://yoursite.com/2017/05/18/activity启动模式深析/index.html">
 <meta property="og:site_name" content="轮子上的猿">
-<meta property="og:description" content="standard：标准模式  任何activity都会新建，按生命周期执行 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果  启动不同的任务栈">
+<meta property="og:description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
 <meta property="og:image" content="http://chuantu.biz/t5/88/1495019055x2890174321.png">
 <meta property="og:image" content="http://chuantu.biz/t5/88/1495018894x2890174178.png">
 <meta property="og:image" content="http://chuantu.biz/t5/88/1495019004x2890174321.png">
-<meta property="og:updated_time" content="2017-05-18T02:01:21.667Z">
+<meta property="og:updated_time" content="2017-05-18T11:35:03.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="activity启动模式分析">
-<meta name="twitter:description" content="standard：标准模式  任何activity都会新建，按生命周期执行 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果  启动不同的任务栈">
+<meta name="twitter:description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
 <meta name="twitter:image" content="http://chuantu.biz/t5/88/1495019055x2890174321.png">
 
 
@@ -348,7 +348,7 @@
       
 
       
-        <h2 id="standard：标准模式"><a href="#standard：标准模式" class="headerlink" title="standard：标准模式"></a>standard：标准模式</h2><p>  任何activity都会新建，按生命周期执行<br><img src="http://chuantu.biz/t5/88/1495019055x2890174321.png" alt=""></p>
+        <h2 id="standard：标准模式"><a href="#standard：标准模式" class="headerlink" title="standard：标准模式"></a>standard：标准模式</h2><p>  任何activity都会新建，按生命周期执行,不会执行onnewintent的<br><img src="http://chuantu.biz/t5/88/1495019055x2890174321.png" alt=""></p>
 <h2 id="singleTop：栈顶复用模式"><a href="#singleTop：栈顶复用模式" class="headerlink" title="singleTop：栈顶复用模式"></a>singleTop：栈顶复用模式</h2><p>  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent</p>
 <h2 id="singleTask：栈内复用模式"><a href="#singleTask：栈内复用模式" class="headerlink" title="singleTask：栈内复用模式"></a>singleTask：栈内复用模式</h2><p>  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果</p>
 <blockquote>
@@ -435,6 +435,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/05/20/url启动activity/" rel="prev" title="url启动activity">
+                url启动activity <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -513,7 +517,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
