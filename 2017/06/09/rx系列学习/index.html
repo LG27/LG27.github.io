@@ -90,20 +90,16 @@
 
 
 
-<meta name="description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
+<meta name="description" content="Rx系列学习一.简单学习 原文 详解1.原理解释观察者：Observer； 被观察者：Observable； 订阅（或注册）：subscribe()。 2.使用代码事例 演示代码 //使用Observable.create()创建被观察者 Observable mObservable = Observable.create(new ObservableOnSubscribe() {">
 <meta property="og:type" content="article">
-<meta property="og:title" content="activity启动模式分析">
-<meta property="og:url" content="http://yoursite.com/2017/05/18/activity启动模式深析/index.html">
+<meta property="og:title" content="轮子上的猿">
+<meta property="og:url" content="http://yoursite.com/2017/06/09/rx系列学习/index.html">
 <meta property="og:site_name" content="轮子上的猿">
-<meta property="og:description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
-<meta property="og:image" content="http://chuantu.biz/t5/88/1495019055x2890174321.png">
-<meta property="og:image" content="http://chuantu.biz/t5/88/1495018894x2890174178.png">
-<meta property="og:image" content="http://chuantu.biz/t5/88/1495019004x2890174321.png">
-<meta property="og:updated_time" content="2017-05-18T11:35:03.307Z">
+<meta property="og:description" content="Rx系列学习一.简单学习 原文 详解1.原理解释观察者：Observer； 被观察者：Observable； 订阅（或注册）：subscribe()。 2.使用代码事例 演示代码 //使用Observable.create()创建被观察者 Observable mObservable = Observable.create(new ObservableOnSubscribe() {">
+<meta property="og:updated_time" content="2017-06-11T02:40:32.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="activity启动模式分析">
-<meta name="twitter:description" content="standard：标准模式  任何activity都会新建，按生命周期执行,不会执行onnewintent的 singleTop：栈顶复用模式  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent singleTask：栈内复用模式  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean">
-<meta name="twitter:image" content="http://chuantu.biz/t5/88/1495019055x2890174321.png">
+<meta name="twitter:title" content="轮子上的猿">
+<meta name="twitter:description" content="Rx系列学习一.简单学习 原文 详解1.原理解释观察者：Observer； 被观察者：Observable； 订阅（或注册）：subscribe()。 2.使用代码事例 演示代码 //使用Observable.create()创建被观察者 Observable mObservable = Observable.create(new ObservableOnSubscribe() {">
 
 
 
@@ -131,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/18/activity启动模式深析/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/09/rx系列学习/"/>
 
 
 
 
 
-  <title>activity启动模式分析 | 轮子上的猿</title>
+  <title> | 轮子上的猿</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -273,7 +269,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/18/activity启动模式深析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/rx系列学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LG27">
@@ -290,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">activity启动模式分析</h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -302,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-18T10:01:33+08:00">
-                2017-05-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T19:01:44+08:00">
+                2017-06-09
               </time>
             
 
@@ -320,7 +316,7 @@
 
           
           
-             <span id="/2017/05/18/activity启动模式深析/" class="leancloud_visitors" data-flag-title="activity启动模式分析">
+             <span id="/2017/06/09/rx系列学习/" class="leancloud_visitors" data-flag-title="">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -348,26 +344,109 @@
       
 
       
-        <h2 id="standard：标准模式"><a href="#standard：标准模式" class="headerlink" title="standard：标准模式"></a>standard：标准模式</h2><p>  任何activity都会新建，按生命周期执行,不会执行onnewintent的<br><img src="http://chuantu.biz/t5/88/1495019055x2890174321.png" alt=""></p>
-<h2 id="singleTop：栈顶复用模式"><a href="#singleTop：栈顶复用模式" class="headerlink" title="singleTop：栈顶复用模式"></a>singleTop：栈顶复用模式</h2><p>  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent</p>
-<h2 id="singleTask：栈内复用模式"><a href="#singleTask：栈内复用模式" class="headerlink" title="singleTask：栈内复用模式"></a>singleTask：栈内复用模式</h2><p>  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果</p>
+        <h1 id="Rx系列学习"><a href="#Rx系列学习" class="headerlink" title="Rx系列学习"></a>Rx系列学习</h1><h2 id="一-简单学习-原文-详解"><a href="#一-简单学习-原文-详解" class="headerlink" title="一.简单学习 原文 详解"></a>一.简单学习 <a href="http://www.cnblogs.com/huolongluo/p/6585724.html" target="_blank" rel="external">原文</a> <a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">详解</a></h2><h3 id="1-原理解释"><a href="#1-原理解释" class="headerlink" title="1.原理解释"></a><font color="#35d48f">1.原理解释</font></h3><pre><code>观察者：Observer；
+被观察者：Observable；
+订阅（或注册）：subscribe()。
+</code></pre><h3 id="2-使用代码事例"><a href="#2-使用代码事例" class="headerlink" title="2.使用代码事例"></a><font color="#35d48f"><strong>2.使用代码事例</strong></font></h3><ul>
+<li><p>演示代码</p>
+<pre><code>//使用Observable.create()创建被观察者
+Observable mObservable = Observable.create(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(ObservableEmitter e) throws Exception {
+                e.onNext(&quot;Hello&quot;);
+                e.onNext(&quot;World&quot;);
+                e.onComplete();
+            }
+        });
+
+//创建一个观察者
+Observer mObserver = new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                //这是新加入的方法，在订阅后发送数据之前，
+                //回首先调用这个方法，而Disposable可用于取消订阅
+
+            }
+
+            @Override
+            public void onNext(Object o) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+ //订阅
+mObservable.subscribe(mObserver);
+</code></pre></li>
+<li><p>高级点：Observable创建方式</p>
 <blockquote>
-<p>启动不同的任务栈</p>
+<p>使用Observable.just()创建被观察者</p>
 </blockquote>
-<pre><code>   &lt;!--android:allowTaskReparenting=&quot;true&quot;--&gt;
-&lt;activity android:name=&quot;.SecondActivity&quot;
-    android:launchMode=&quot;singleTask&quot;
-    android:taskAffinity=&quot;com.lg.othertask&quot;
-    /&gt;
-无须在intent中.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-</code></pre><p><img src="http://chuantu.biz/t5/88/1495018894x2890174178.png" alt="img"></p>
-<h2 id="singleInstance：单实例模式"><a href="#singleInstance：单实例模式" class="headerlink" title="singleInstance：单实例模式"></a>singleInstance：单实例模式</h2><p>  增强型singletask，会为activity单独启动有一个任务栈，并且只要栈不被回收，走onnewintent不新建activity</p>
-<p><img src="http://chuantu.biz/t5/88/1495019004x2890174321.png" alt=""></p>
-<h3 id="方法记录"><a href="#方法记录" class="headerlink" title="方法记录"></a>方法记录</h3><ul>
-<li>adb shell dumpsys activity</li>
-<li>在terminal中查找 Running activities (most recent first):</li>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;World&quot;);
+</code></pre><blockquote>
+<p>使用Observable.from()创建被观察者</p>
+</blockquote>
+<pre><code>String [] words = {&quot;Hello&quot;, &quot;World&quot;};
+Observable observable3 = Observable.from(words);
+
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;Hellow&quot;);
+list.add(&quot;Wrold&quot;);
+Observable observable4 = Observable.from(list);
+</code></pre></li>
+<li><p>Observer被装饰为Subscriber</p>
+</li>
+<li>action（其实是将它转换为一个Subscriber）<blockquote>
+<p><strong>Action0</strong>： 它只有一个方法 call()，这个方法是无参无返回值的；由于 onCompleted() 方法也是无参无返回值的，因此 Action0 可以被当成一个包装对象，将 onCompleted() 的内容打包起来将自己作为一个参数传入 subscribe() 以实现不完整定义的回调。</p>
+</blockquote>
+</li>
 </ul>
-<p><a href="https://juejin.im/post/591bd09a2f301e006bcd6e43" target="_blank" rel="external">阅读原文</a></p>
+<blockquote>
+<p><strong>Ation1</strong>：它同样只有一个方法 call(T param)，这个方法也无返回值，但有一个参数；与 Action0 同理，由于 onNext(T obj) 和 onError(Throwable error) 也是单参数无返回值的，因此 Action1 可以将 onNext(obj)和 onError(error) 打包起来传入 subscribe() 以实现不完整定义的回调</p>
+</blockquote>
+<ul>
+<li>Func1与action相似只是封装的为有返回值的Observable，使用map包裹</li>
+<li>flatMap解决map中的循环嵌套</li>
+<li>其他操作：filter：集合进行过滤each：遍历集合take：取出集合中的前几个skip：跳过前几个元素</li>
+<li><p>加上线程的代码：这才是真正使用时的代码</p>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;Wrold&quot;)
+        .subscribeOn(Schedulers.newThread())//指定：在新的线程中发起
+        .observeOn(Schedulers.io())         //指定：在io线程中处理
+        .map(new Func1&lt;String, String&gt;() {
+            @Override
+            public String call(String s) {
+                return handleString(s);       //处理数据
+            }
+        })
+        .observeOn(AndroidSchedulers.mainThread())//指定：在主线程中处理
+        .subscribe(new Action1&lt;String&gt;() {
+            @Override
+            public void call(String s) {
+                show(s);                       //消费事件
+            }
+        });
+//observeOn() 指定的是它之后的操作所在的线程,observeOn()被调用了两次，分别指定了map的处理的现场和消费事件show(s)的线程
+</code></pre></li>
+<li>线程的标识</li>
+</ul>
+<blockquote>
+<ul>
+<li>Schedulers.immediate()：直接在当前线程运行，相当于不指定线程。这是默认的 Scheduler。</li>
+<li>Schedulers.newThread()：总是启用新线程，并在新线程执行操作。</li>
+<li>Schedulers.io()： I/O 操作（读写文件、读写数据库、网络信息交互等）所使用的 Scheduler。行为模式和 newThread() 差不多，区别在于 io() 的内部实现是是用一个无数量上限的线程池，可以重用空闲的线程，因此多数情况下 io() 比 newThread() 更有效率。不要把计算工作放在 io() 中，可以避免创建不必要的线程。</li>
+<li>Schedulers.computation()：计算所使用的 Scheduler。这个计算指的是 CPU 密集型计算，即不会被 I/O 等操作限制性能的操作，例如图形的计算。这个 Scheduler 使用的固定的线程池，大小为 CPU 核数。不要把 I/O 操作放在 computation() 中，否则 I/O 操作的等待时间会浪费 CPU。</li>
+<li>AndroidSchedulers.mainThread()：它指定的操作将在 Android 主线程运行。</li>
+</ul>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/517c3f4c7bc1#" target="_blank" rel="external">值得推荐的文章</a></p>
 
       
     </div>
@@ -425,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/15/gradle学习笔记/" rel="next" title="gradle学习笔记">
-                <i class="fa fa-chevron-left"></i> gradle学习笔记
+              <a href="/2017/06/08/android studio使用技巧/" rel="next" title="android studio使用技巧">
+                <i class="fa fa-chevron-left"></i> android studio使用技巧
               </a>
             
           </div>
@@ -435,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/20/url启动activity/" rel="prev" title="url启动activity">
-                url启动activity <i class="fa fa-chevron-right"></i>
+              <a href="/2017/06/12/中文下markdown输入英文符号/" rel="prev" title="提升markdown的中文输入效率">
+                提升markdown的中文输入效率 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -574,7 +653,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#standard：标准模式"><span class="nav-number">1.</span> <span class="nav-text">standard：标准模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#singleTop：栈顶复用模式"><span class="nav-number">2.</span> <span class="nav-text">singleTop：栈顶复用模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#singleTask：栈内复用模式"><span class="nav-number">3.</span> <span class="nav-text">singleTask：栈内复用模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#singleInstance：单实例模式"><span class="nav-number">4.</span> <span class="nav-text">singleInstance：单实例模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法记录"><span class="nav-number">4.1.</span> <span class="nav-text">方法记录</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rx系列学习"><span class="nav-number">1.</span> <span class="nav-text">Rx系列学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-简单学习-原文-详解"><span class="nav-number">1.1.</span> <span class="nav-text">一.简单学习 原文 详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-原理解释"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.原理解释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用代码事例"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.使用代码事例</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -270,6 +270,395 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/12/中文下markdown输入英文符号/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LG27">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/奶萌兔.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="轮子上的猿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/12/中文下markdown输入英文符号/" itemprop="url">提升markdown的中文输入效率</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-12T10:11:50+08:00">
+                2017-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/12/中文下markdown输入英文符号/" class="leancloud_visitors" data-flag-title="提升markdown的中文输入效率">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <font color="#3FB47B"><a href="http://weishu.me/2016/02/01/avoid-switching-keyboard-in-markdown/" target="_blank" rel="external">转载自weishu</a></font>
+
+<h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><ul>
+<li>中文状态下总要切换输入法才能输入[]()`*!-，需要提高效率</li>
+</ul>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><ol>
+<li>安装<a href="https://autohotkey.com/download/" target="_blank" rel="external"><code>AutoHotKey</code></a></li>
+<li><p>下载大神编写的键盘映射<a href="https://gist.github.com/tiann/9068fd34f44337e8dcfb" target="_blank" rel="external"><code>markdown_keyboard_remapping.ahk</code></a></p>
+<pre><code>!`::  Send {Asc 096} ;output `~
+
+!+`:: Send % &quot;{ASC 0&quot; . Asc(&quot;~&quot;) . &quot;}&quot;
+
+!-:: Send % &quot;{ASC 0&quot; . Asc(&quot;-&quot;) . &quot;}&quot; ; output -_
+
+!+-:: Send % &quot;{ASC 0&quot; . Asc(&quot;_&quot;) . &quot;}&quot;
+
+![:: Send % &quot;{ASC 0&quot; . Asc(&quot;[&quot;) . &quot;}&quot; ; output [{
+
+!+[:: Send % &quot;{ASC 0&quot; . Asc(&quot;{&quot;) . &quot;}&quot;
+
+!]:: Send % &quot;{ASC 0&quot; . Asc(&quot;]&quot;) . &quot;}&quot; ; output ]}
+
+!+]:: Send % &quot;{ASC 0&quot; . Asc(&quot;}&quot;) . &quot;}&quot;
+
+; ----------------------------------------------
+
+!1:: Send % &quot;{ASC 0&quot; . Asc(&quot;!&quot;) . &quot;}&quot;
+
+!3:: Send % &quot;{ASC 0&quot; . Asc(&quot;#&quot;) . &quot;}&quot;
+
+!8:: Send % &quot;{ASC 0&quot; . Asc(&quot;*&quot;) . &quot;}&quot;
+
+!9:: Send % &quot;{ASC 0&quot; . Asc(&quot;(&quot;) . &quot;}&quot;
+
+!0:: Send % &quot;{ASC 0&quot; . Asc(&quot;)&quot;) . &quot;}&quot;
+</code></pre></li>
+<li><p>在win10下添加开机启动，win+r（cmd）输入shell:startup，添加ahk文件即可</p>
+</li>
+</ol>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><blockquote>
+<p>alt ＋ 数字键/符号键；比如想输入[，可以在任何输入法下直接使用alt ＋ [；如果想输入#，可以直接使用alt ＋ 3。</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/09/rx系列学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LG27">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/奶萌兔.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="轮子上的猿">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/09/rx系列学习/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-09T19:01:44+08:00">
+                2017-06-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/06/09/rx系列学习/" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Rx系列学习"><a href="#Rx系列学习" class="headerlink" title="Rx系列学习"></a>Rx系列学习</h1><h2 id="一-简单学习-原文-详解"><a href="#一-简单学习-原文-详解" class="headerlink" title="一.简单学习 原文 详解"></a>一.简单学习 <a href="http://www.cnblogs.com/huolongluo/p/6585724.html" target="_blank" rel="external">原文</a> <a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">详解</a></h2><h3 id="1-原理解释"><a href="#1-原理解释" class="headerlink" title="1.原理解释"></a><font color="#35d48f">1.原理解释</font></h3><pre><code>观察者：Observer；
+被观察者：Observable；
+订阅（或注册）：subscribe()。
+</code></pre><h3 id="2-使用代码事例"><a href="#2-使用代码事例" class="headerlink" title="2.使用代码事例"></a><font color="#35d48f"><strong>2.使用代码事例</strong></font></h3><ul>
+<li><p>演示代码</p>
+<pre><code>//使用Observable.create()创建被观察者
+Observable mObservable = Observable.create(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(ObservableEmitter e) throws Exception {
+                e.onNext(&quot;Hello&quot;);
+                e.onNext(&quot;World&quot;);
+                e.onComplete();
+            }
+        });
+
+//创建一个观察者
+Observer mObserver = new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                //这是新加入的方法，在订阅后发送数据之前，
+                //回首先调用这个方法，而Disposable可用于取消订阅
+
+            }
+
+            @Override
+            public void onNext(Object o) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+ //订阅
+mObservable.subscribe(mObserver);
+</code></pre></li>
+<li><p>高级点：Observable创建方式</p>
+<blockquote>
+<p>使用Observable.just()创建被观察者</p>
+</blockquote>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;World&quot;);
+</code></pre><blockquote>
+<p>使用Observable.from()创建被观察者</p>
+</blockquote>
+<pre><code>String [] words = {&quot;Hello&quot;, &quot;World&quot;};
+Observable observable3 = Observable.from(words);
+
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;Hellow&quot;);
+list.add(&quot;Wrold&quot;);
+Observable observable4 = Observable.from(list);
+</code></pre></li>
+<li><p>Observer被装饰为Subscriber</p>
+</li>
+<li>action（其实是将它转换为一个Subscriber）<blockquote>
+<p><strong>Action0</strong>： 它只有一个方法 call()，这个方法是无参无返回值的；由于 onCompleted() 方法也是无参无返回值的，因此 Action0 可以被当成一个包装对象，将 onCompleted() 的内容打包起来将自己作为一个参数传入 subscribe() 以实现不完整定义的回调。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>Ation1</strong>：它同样只有一个方法 call(T param)，这个方法也无返回值，但有一个参数；与 Action0 同理，由于 onNext(T obj) 和 onError(Throwable error) 也是单参数无返回值的，因此 Action1 可以将 onNext(obj)和 onError(error) 打包起来传入 subscribe() 以实现不完整定义的回调</p>
+</blockquote>
+<ul>
+<li>Func1与action相似只是封装的为有返回值的Observable，使用map包裹</li>
+<li>flatMap解决map中的循环嵌套</li>
+<li>其他操作：filter：集合进行过滤each：遍历集合take：取出集合中的前几个skip：跳过前几个元素</li>
+<li><p>加上线程的代码：这才是真正使用时的代码</p>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;Wrold&quot;)
+        .subscribeOn(Schedulers.newThread())//指定：在新的线程中发起
+        .observeOn(Schedulers.io())         //指定：在io线程中处理
+        .map(new Func1&lt;String, String&gt;() {
+            @Override
+            public String call(String s) {
+                return handleString(s);       //处理数据
+            }
+        })
+        .observeOn(AndroidSchedulers.mainThread())//指定：在主线程中处理
+        .subscribe(new Action1&lt;String&gt;() {
+            @Override
+            public void call(String s) {
+                show(s);                       //消费事件
+            }
+        });
+//observeOn() 指定的是它之后的操作所在的线程,observeOn()被调用了两次，分别指定了map的处理的现场和消费事件show(s)的线程
+</code></pre></li>
+<li>线程的标识</li>
+</ul>
+<blockquote>
+<ul>
+<li>Schedulers.immediate()：直接在当前线程运行，相当于不指定线程。这是默认的 Scheduler。</li>
+<li>Schedulers.newThread()：总是启用新线程，并在新线程执行操作。</li>
+<li>Schedulers.io()： I/O 操作（读写文件、读写数据库、网络信息交互等）所使用的 Scheduler。行为模式和 newThread() 差不多，区别在于 io() 的内部实现是是用一个无数量上限的线程池，可以重用空闲的线程，因此多数情况下 io() 比 newThread() 更有效率。不要把计算工作放在 io() 中，可以避免创建不必要的线程。</li>
+<li>Schedulers.computation()：计算所使用的 Scheduler。这个计算指的是 CPU 密集型计算，即不会被 I/O 等操作限制性能的操作，例如图形的计算。这个 Scheduler 使用的固定的线程池，大小为 CPU 核数。不要把 I/O 操作放在 computation() 中，否则 I/O 操作的等待时间会浪费 CPU。</li>
+<li>AndroidSchedulers.mainThread()：它指定的操作将在 Android 主线程运行。</li>
+</ul>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/517c3f4c7bc1#" target="_blank" rel="external">值得推荐的文章</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/08/android studio使用技巧/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -368,6 +757,7 @@
 <li>ctrl+shift+n <code>打开任意文件</code></li>
 <li>ctrl+shift+e <code>最近打开的文件</code></li>
 <li>ctrl+shift+m <code>方法括号对应的位置</code></li>
+<li>ctrl+shift+u <code>string大小写转换</code></li>
 <li>ctrl+i <code>引入实现接口的方法</code></li>
 <li>alt+enter <code>光标在字符串上，可以填充到res的xml中</code></li>
 <li>ctrl+shift+u <code>大小写转换</code></li>
@@ -1097,7 +1487,7 @@ ext应该是指后缀为 或者 定义变量同def
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
