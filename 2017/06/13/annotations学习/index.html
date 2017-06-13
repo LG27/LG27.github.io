@@ -90,16 +90,19 @@
 
 
 
-<meta name="description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
+<meta name="description" content="原文来自 annotation定义 元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响 就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Ann">
 <meta property="og:type" content="article">
-<meta property="og:title" content="gradle学习笔记">
-<meta property="og:url" content="http://yoursite.com/2017/05/15/gradle学习笔记/index.html">
+<meta property="og:title" content="annotation学习">
+<meta property="og:url" content="http://yoursite.com/2017/06/13/annotations学习/index.html">
 <meta property="og:site_name" content="轮子上的猿">
-<meta property="og:description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
-<meta property="og:updated_time" content="2017-05-15T08:47:51.088Z">
+<meta property="og:description" content="原文来自 annotation定义 元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响 就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Ann">
+<meta property="og:image" content="http://yoursite.com/uploads/deprecated.png">
+<meta property="og:image" content="http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4b44734.jpg">
+<meta property="og:updated_time" content="2017-06-13T09:40:39.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="gradle学习笔记">
-<meta name="twitter:description" content="一、gradle依赖规则group，name和version例如 compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos; compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos; 二、gradle的三种仓库 mavenC">
+<meta name="twitter:title" content="annotation学习">
+<meta name="twitter:description" content="原文来自 annotation定义 元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响 就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Ann">
+<meta name="twitter:image" content="http://yoursite.com/uploads/deprecated.png">
 
 
 
@@ -127,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/15/gradle学习笔记/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/13/annotations学习/"/>
 
 
 
 
 
-  <title>gradle学习笔记 | 轮子上的猿</title>
+  <title>annotation学习 | 轮子上的猿</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/15/gradle学习笔记/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/13/annotations学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LG27">
@@ -286,7 +289,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">gradle学习笔记</h1>
+          <h1 class="post-title" itemprop="name headline">annotation学习</h1>
         
 
         <div class="post-meta">
@@ -298,8 +301,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-15T16:34:00+08:00">
-                2017-05-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-13T20:14:02+08:00">
+                2017-06-13
               </time>
             
 
@@ -316,7 +319,7 @@
 
           
           
-             <span id="/2017/05/15/gradle学习笔记/" class="leancloud_visitors" data-flag-title="gradle学习笔记">
+             <span id="/2017/06/13/annotations学习/" class="leancloud_visitors" data-flag-title="annotation学习">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -344,45 +347,69 @@
       
 
       
-        <h3 id="一、gradle依赖规则group，name和version"><a href="#一、gradle依赖规则group，name和version" class="headerlink" title="一、gradle依赖规则group，name和version"></a>一、gradle依赖规则group，name和version</h3><pre><code>例如
-compile &apos;com.google.code.gson:gson:2.3&apos;
-compile group: &apos;com.google.code.gson&apos;, name: &apos;gson&apos;, version:&apos;2.3&apos;
-</code></pre><h3 id="二、gradle的三种仓库"><a href="#二、gradle的三种仓库" class="headerlink" title="二、gradle的三种仓库"></a>二、gradle的三种仓库</h3><blockquote>
-<p>mavenCentral()maven网络仓库（中心仓库）<br>jcenter()jcenter是maven中心库的一个分支<br>mavenLocal()maven本地仓库<br>Ivy仓库 需要权限的仓库</p>
+        <p><a href="http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html" target="_blank" rel="external"><font color="#35d48f" size="20px">原文来自</font></a></p>
+<h2 id="annotation定义"><a href="#annotation定义" class="headerlink" title="annotation定义"></a>annotation定义</h2><blockquote>
+<p>元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响</p>
+<p><strong>就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。</strong>Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Annotion对象来获取注解里面的元数据。</p>
+<h2 id="使用情况"><a href="#使用情况" class="headerlink" title="使用情况"></a>使用情况</h2><ul>
+<li><strong>为编译器提供辅助信息</strong> — Annotations可以为编译器提供而外信息，以便于检测错误，抑制警告等.</li>
+<li><strong>编译源代码时进行而外操作</strong> — 软件工具可以通过处理Annotation信息来生成原代码，xml文件等等.</li>
+<li><strong>运行时处理</strong> — 有一些annotation甚至可以在程序运行时被检测，使用.</li>
+</ul>
 </blockquote>
-<pre><code>repositories {
-   maven {
-       url &quot;http://repo.acmecorp.com/maven2&quot;
-       credentials {
-           username &apos;user&apos;
-           password &apos;secretpassword&apos;//最好把隐私信息放在properties中
-       }
-    } 
-}
-</code></pre><h3 id="三、依赖包"><a href="#三、依赖包" class="headerlink" title="三、依赖包"></a>三、依赖包</h3><ul>
-<li><p>jar</p>
-<pre><code>dependencies {
-   compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
-}
-</code></pre></li>
-<li><p>so</p>
-</li>
-<li>aar</li>
+<h2 id="标准的内置注解"><a href="#标准的内置注解" class="headerlink" title="标准的内置注解"></a>标准的内置注解</h2><ul>
+<li><strong>@override</strong> ：被标注的方法重载了父类的方法</li>
+<li><strong>@Deprecated</strong> ：标记已过时<ul>
+<li>@Deprecated是java编译器识别的，javadoc中的 @deprecated是被javadoc工具所识别用来生成文档（包含程序成员为什么已经过 时、它应当如何被禁止或者替代的描述）<img src="/uploads/deprecated.png" alt=""></li>
 </ul>
-<h3 id="四、依赖配置"><a href="#四、依赖配置" class="headerlink" title="四、依赖配置"></a>四、依赖配置</h3><h4 id="1-静态依赖"><a href="#1-静态依赖" class="headerlink" title="1.静态依赖"></a>1.静态依赖</h4><ul>
-<li><p>compile是默认的那个，其含义是包含所有的依赖包，即在APK里，compile的依赖会存在。</p>
 </li>
-<li><p>apk的意思是apk中存在，但是不会加入编译中，这个貌似用的比较少。</p>
+<li><p><strong>@SuppressWarnnings</strong> 抑制编译器警告 </p>
+<ul>
+<li>传参 @SuppressWarnings(value={ “rawtypes”, “unchecked” })或@SuppressWarnings({ “rawtypes”, “unchecked” })或 @SuppressWarnings(“unused”)</li>
+<li><p>常用的参数</p>
+<pre><code>1.deprecation：使用了不赞成使用的类或方法时的警告；
+2.unchecked：执行了未检查的转换时的警告，例如当使用集合时没有用泛型 (Generics) 来指定集合保存的类型; 
+3.fallthrough：当 Switch 程序块直接通往下一种情况而没有 Break 时的警告;
+4.path：在类路径、源文件路径等中有不存在的路径时的警告; 
+5.serial：当在可序列化的类上缺少 serialVersionUID 定义时的警告; 
+6.finally：任何 finally 子句不能正常完成时的警告; 
+7.all：关于以上所有情况的警告。
+</code></pre><h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><blockquote>
+<p>解释其他注解的注解（meta-annotation）</p>
+</blockquote>
 </li>
-<li><p>provided的意思是提供编译支持，但是不会写入apk。</p>
-</li>
-<li><p>testCompile和androidTestCompile会添加额外的library支持针对测试。</p>
-<h4 id="2-动态依赖"><a href="#2-动态依赖" class="headerlink" title="2.动态依赖"></a>2.动态依赖</h4></li>
-<li>使用+用来标识版本号获取最新的</li>
 </ul>
-<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><pre><code>org.gradle.parallel=true 可以加快构建前提内存够大
-ext应该是指后缀为 或者 定义变量同def
-</code></pre>
+</li>
+</ul>
+<ul>
+<li><p><strong>@Target</strong> 说明了Annotation所修饰的对象范围</p>
+<pre><code>packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）  
+</code></pre><ol>
+<li><em>ElementType.CONSTRUCTOR</em>:用于描述构造器</li>
+<li><em>ElementType.FIELD</em>:用于描述域</li>
+<li><em>ElementType.LOCAL_VARIABLE</em>:用于描述局部变量</li>
+<li><em>ElementType.METHOD</em>:用于描述方法</li>
+<li><em>ElementType.PACKAGE</em>:用于描述包</li>
+<li><em>ElementType.PARAMETER</em>:用于描述参数</li>
+<li><em>ElementType.TYPE</em>:用于描述类、接口(包括注解类型) 或enum声明</li>
+</ol>
+</li>
+<li><p><strong>@Retention</strong>表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）</p>
+<ol>
+<li><em>SOURCE</em>:在源文件中有效（即源文件保留），编译器直接丢弃这种策略的注释</li>
+<li><em>CLASS</em>:在class文件中有效（即class保留），编译器将把注释记录在 class文件中.当运行 Java程序时,JVM 不会保留注释.这是默认值</li>
+<li><em>RUNTIME</em>:在运行时有效（即运行时保留），编译器将把注释记录在class文件中. 当运行 Java 程序时, JVM 会保留注释. 程序可以通过反射获取该注释</li>
+</ol>
+</li>
+<li><strong>@Documented</strong>用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</li>
+<li><strong>@Inherited</strong> 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</li>
+</ul>
+<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><blockquote>
+<p>使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。</p>
+<h2 id="AnnotatedElement-接口-注解处理器类库"><a href="#AnnotatedElement-接口-注解处理器类库" class="headerlink" title="AnnotatedElement(接口)注解处理器类库"></a>AnnotatedElement(接口)注解处理器类库</h2><p>通过反射获取注解，拿到注解中的参数<br><img src="http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4b44734.jpg" alt=""></p>
+</blockquote>
+<h2 id="使用时出现的问题"><a href="#使用时出现的问题" class="headerlink" title="使用时出现的问题"></a>使用时出现的问题</h2><p>@Retention(RetentionPolicy.RUNTIME)这个使用时慎重，为source时真的找不到</p>
+
       
     </div>
 
@@ -439,15 +466,15 @@ ext应该是指后缀为 或者 定义变量同def
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/12/java反射学习/" rel="next" title="java反射学习">
+                <i class="fa fa-chevron-left"></i> java反射学习
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/18/activity启动模式深析/" rel="prev" title="activity启动模式分析">
-                activity启动模式分析 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -584,7 +611,7 @@ ext应该是指后缀为 或者 定义变量同def
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、gradle依赖规则group，name和version"><span class="nav-number">1.</span> <span class="nav-text">一、gradle依赖规则group，name和version</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、gradle的三种仓库"><span class="nav-number">2.</span> <span class="nav-text">二、gradle的三种仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、依赖包"><span class="nav-number">3.</span> <span class="nav-text">三、依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、依赖配置"><span class="nav-number">4.</span> <span class="nav-text">四、依赖配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-静态依赖"><span class="nav-number">4.1.</span> <span class="nav-text">1.静态依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-动态依赖"><span class="nav-number">4.2.</span> <span class="nav-text">2.动态依赖</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建议"><span class="nav-number">5.</span> <span class="nav-text">建议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#annotation定义"><span class="nav-number">1.</span> <span class="nav-text">annotation定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用情况"><span class="nav-number">2.</span> <span class="nav-text">使用情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准的内置注解"><span class="nav-number">3.</span> <span class="nav-text">标准的内置注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元注解"><span class="nav-number">4.</span> <span class="nav-text">元注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义注解"><span class="nav-number">5.</span> <span class="nav-text">自定义注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AnnotatedElement-接口-注解处理器类库"><span class="nav-number">6.</span> <span class="nav-text">AnnotatedElement(接口)注解处理器类库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用时出现的问题"><span class="nav-number">7.</span> <span class="nav-text">使用时出现的问题</span></a></li></ol></div>
             
 
           </div>
