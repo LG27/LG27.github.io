@@ -2,10 +2,8 @@
 
 
 
-  
 
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<html class="theme-next mist" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,6 +77,10 @@
 
 
 
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="轮子上的猿" type="application/atom+xml" />
 
 
 
@@ -98,7 +100,7 @@
 <meta property="og:description" content="原文来自 annotation定义 元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响 就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Ann">
 <meta property="og:image" content="http://yoursite.com/uploads/deprecated.png">
 <meta property="og:image" content="http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4b44734.jpg">
-<meta property="og:updated_time" content="2017-06-15T02:30:57.490Z">
+<meta property="og:updated_time" content="2017-06-15T04:37:47.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="annotation学习">
 <meta name="twitter:description" content="原文来自 annotation定义 元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响 就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Ann">
@@ -113,7 +115,7 @@
     scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
-    motion: true,
+    motion: false,
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -359,19 +361,20 @@
 <h2 id="使用情况"><a href="#使用情况" class="headerlink" title="使用情况"></a>使用情况</h2><ul>
 <li><strong>为编译器提供辅助信息</strong> — Annotations可以为编译器提供而外信息，以便于检测错误，抑制警告等.</li>
 <li><strong>编译源代码时进行而外操作</strong> — 软件工具可以通过处理Annotation信息来生成原代码，xml文件等等.</li>
-<li><strong>运行时处理</strong> — 有一些annotation甚至可以在程序运行时被检测，使用.</li>
-</ul>
-</blockquote>
+<li><strong>运行时处理</strong> — 有一些annotation甚至可以在程序运行时被检测，使用.<a id="more"></a>
 <h2 id="标准的内置注解"><a href="#标准的内置注解" class="headerlink" title="标准的内置注解"></a>标准的内置注解</h2><ul>
 <li><strong>@override</strong> ：被标注的方法重载了父类的方法</li>
-<li><strong>@Deprecated</strong> ：标记已过时<ul>
+<li><strong>@Deprecated</strong> ：标记已过时</li>
 <li>@Deprecated是java编译器识别的，javadoc中的 @deprecated是被javadoc工具所识别用来生成文档（包含程序成员为什么已经过 时、它应当如何被禁止或者替代的描述）<img src="/uploads/deprecated.png" alt=""></li>
+<li><strong>@SuppressWarnnings</strong> 抑制编译器警告 <ul>
+<li>传参 @SuppressWarnings(value={ “rawtypes”, “unchecked” })或@SuppressWarnings({ “rawtypes”, “unchecked” })或 @SuppressWarnings(“unused”)</li>
+<li>常用的参数</li>
 </ul>
 </li>
-<li><p><strong>@SuppressWarnnings</strong> 抑制编译器警告 </p>
-<ul>
-<li>传参 @SuppressWarnings(value={ “rawtypes”, “unchecked” })或@SuppressWarnings({ “rawtypes”, “unchecked” })或 @SuppressWarnings(“unused”)</li>
-<li><p>常用的参数</p>
+</ul>
+</li>
+</ul>
+</blockquote>
 <pre><code>1.deprecation：使用了不赞成使用的类或方法时的警告；
 2.unchecked：执行了未检查的转换时的警告，例如当使用集合时没有用泛型 (Generics) 来指定集合保存的类型; 
 3.fallthrough：当 Switch 程序块直接通往下一种情况而没有 Break 时的警告;
@@ -382,10 +385,6 @@
 </code></pre><h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><blockquote>
 <p>解释其他注解的注解（meta-annotation）</p>
 </blockquote>
-</li>
-</ul>
-</li>
-</ul>
 <ul>
 <li><p><strong>@Target</strong> 说明了Annotation所修饰的对象范围</p>
 <pre><code>packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）  
@@ -573,8 +572,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LG27" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
           
         </div>
 

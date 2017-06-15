@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>轮子上的猿</title>
+  <subtitle>LG27</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-06-15T04:37:47.148Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>LG27</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>annotation学习</title>
+    <link href="http://yoursite.com/2017/06/13/annotations%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/06/13/annotations学习/</id>
+    <published>2017-06-13T12:14:02.898Z</published>
+    <updated>2017-06-15T04:37:47.148Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html" target="_blank" rel="external"><font color="#35d48f" size="20px">原文来自</font></a></p>
+<h2 id="annotation定义"><a href="#annotation定义" class="headerlink" title="annotation定义"></a>annotation定义</h2><blockquote>
+<p>元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响</p>
+<p><strong>就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。</strong>Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Annotion对象来获取注解里面的元数据。</p>
+<h2 id="使用情况"><a href="#使用情况" class="headerlink" title="使用情况"></a>使用情况</h2><ul>
+<li><strong>为编译器提供辅助信息</strong> — Annotations可以为编译器提供而外信息，以便于检测错误，抑制警告等.</li>
+<li><strong>编译源代码时进行而外操作</strong> — 软件工具可以通过处理Annotation信息来生成原代码，xml文件等等.</li>
+<li><strong>运行时处理</strong> — 有一些annotation甚至可以在程序运行时被检测，使用.<a id="more"></a>
+<h2 id="标准的内置注解"><a href="#标准的内置注解" class="headerlink" title="标准的内置注解"></a>标准的内置注解</h2><ul>
+<li><strong>@override</strong> ：被标注的方法重载了父类的方法</li>
+<li><strong>@Deprecated</strong> ：标记已过时</li>
+<li>@Deprecated是java编译器识别的，javadoc中的 @deprecated是被javadoc工具所识别用来生成文档（包含程序成员为什么已经过 时、它应当如何被禁止或者替代的描述）<img src="/uploads/deprecated.png" alt=""></li>
+<li><strong>@SuppressWarnnings</strong> 抑制编译器警告 <ul>
+<li>传参 @SuppressWarnings(value={ “rawtypes”, “unchecked” })或@SuppressWarnings({ “rawtypes”, “unchecked” })或 @SuppressWarnings(“unused”)</li>
+<li>常用的参数</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre><code>1.deprecation：使用了不赞成使用的类或方法时的警告；
+2.unchecked：执行了未检查的转换时的警告，例如当使用集合时没有用泛型 (Generics) 来指定集合保存的类型; 
+3.fallthrough：当 Switch 程序块直接通往下一种情况而没有 Break 时的警告;
+4.path：在类路径、源文件路径等中有不存在的路径时的警告; 
+5.serial：当在可序列化的类上缺少 serialVersionUID 定义时的警告; 
+6.finally：任何 finally 子句不能正常完成时的警告; 
+7.all：关于以上所有情况的警告。
+</code></pre><h2 id="元注解"><a href="#元注解" class="headerlink" title="元注解"></a>元注解</h2><blockquote>
+<p>解释其他注解的注解（meta-annotation）</p>
+</blockquote>
+<ul>
+<li><p><strong>@Target</strong> 说明了Annotation所修饰的对象范围</p>
+<pre><code>packages、types（类、接口、枚举、Annotation类型）、类型成员（方法、构造方法、成员变量、枚举值）、方法参数和本地变量（如循环变量、catch参数）  
+</code></pre><ol>
+<li><em>ElementType.CONSTRUCTOR</em>:用于描述构造器</li>
+<li><em>ElementType.FIELD</em>:用于描述域</li>
+<li><em>ElementType.LOCAL_VARIABLE</em>:用于描述局部变量</li>
+<li><em>ElementType.METHOD</em>:用于描述方法</li>
+<li><em>ElementType.PACKAGE</em>:用于描述包</li>
+<li><em>ElementType.PARAMETER</em>:用于描述参数</li>
+<li><em>ElementType.TYPE</em>:用于描述类、接口(包括注解类型) 或enum声明</li>
+</ol>
+</li>
+<li><p><strong>@Retention</strong>表示需要在什么级别保存该注释信息，用于描述注解的生命周期（即：被描述的注解在什么范围内有效）</p>
+<ol>
+<li><em>SOURCE</em>:在源文件中有效（即源文件保留），编译器直接丢弃这种策略的注释</li>
+<li><em>CLASS</em>:在class文件中有效（即class保留），编译器将把注释记录在 class文件中.当运行 Java程序时,JVM 不会保留注释.这是默认值</li>
+<li><em>RUNTIME</em>:在运行时有效（即运行时保留），编译器将把注释记录在class文件中. 当运行 Java 程序时, JVM 会保留注释. 程序可以通过反射获取该注释</li>
+</ol>
+</li>
+<li><strong>@Documented</strong>用于描述其它类型的annotation应该被作为被标注的程序成员的公共API，因此可以被例如javadoc此类的工具文档化。Documented是一个标记注解，没有成员。</li>
+<li><strong>@Inherited</strong> 元注解是一个标记注解，@Inherited阐述了某个被标注的类型是被继承的。如果一个使用了@Inherited修饰的annotation类型被用于一个class，则这个annotation将被用于该class的子类。</li>
+</ul>
+<h2 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h2><blockquote>
+<p>使用@interface自定义注解时，自动继承了java.lang.annotation.Annotation接口，由编译程序自动完成其他细节。在定义注解时，不能继承其他的注解或接口。@interface用来声明一个注解，其中的每一个方法实际上是声明了一个配置参数。方法的名称就是参数的名称，返回值类型就是参数的类型（返回值类型只能是基本类型、Class、String、enum）。可以通过default来声明参数的默认值。</p>
+<h2 id="AnnotatedElement-接口-注解处理器类库"><a href="#AnnotatedElement-接口-注解处理器类库" class="headerlink" title="AnnotatedElement(接口)注解处理器类库"></a>AnnotatedElement(接口)注解处理器类库</h2><p>通过反射获取注解，拿到注解中的参数<br><img src="http://images.cnitblog.com/blog/34483/201304/25200814-475cf2f3a8d24e0bb3b4c442a4b44734.jpg" alt=""></p>
+</blockquote>
+<h2 id="使用时出现的问题"><a href="#使用时出现的问题" class="headerlink" title="使用时出现的问题"></a>使用时出现的问题</h2><p>@Retention(RetentionPolicy.RUNTIME)这个使用时慎重，为source时真的找不到</p>
+<p><a href="http://dl.download.csdn.net/down11/20170613/841a3489cf137ee5118d93b159a2c7e2.zip?response-content-disposition=attachment%3Bfilename%3D%22annotation.zip%22&amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;Expires=1497497275&amp;Signature=AHTQ2uVESW4DA6m3PNNpC3Imw10%3D" target="_blank" rel="external"><font color="#9fd524">android示例</font></a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/peida/archive/2013/04/26/3038503.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font color=&quot;#35d48f&quot; size=&quot;20px&quot;&gt;原文来自&lt;/font&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;annotation定义&quot;&gt;&lt;a href=&quot;#annotation定义&quot; class=&quot;headerlink&quot; title=&quot;annotation定义&quot;&gt;&lt;/a&gt;annotation定义&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;元数据，其作用在于提供程序本身以外的一些数据信息，也就是说Annotation他不会属于程序代码本身，不参与逻辑运算，故而不会对原程序代码的操作产生直接的影响&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;就是Java提供了一种元程序中的元素关联任何信息和着任何元数据（metadata）的途径和方法。&lt;/strong&gt;Annotion(注解)是一个接口，程序可以通过反射来获取指定程序元素的Annotion对象，然后通过Annotion对象来获取注解里面的元数据。&lt;/p&gt;
+&lt;h2 id=&quot;使用情况&quot;&gt;&lt;a href=&quot;#使用情况&quot; class=&quot;headerlink&quot; title=&quot;使用情况&quot;&gt;&lt;/a&gt;使用情况&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;为编译器提供辅助信息&lt;/strong&gt; — Annotations可以为编译器提供而外信息，以便于检测错误，抑制警告等.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;编译源代码时进行而外操作&lt;/strong&gt; — 软件工具可以通过处理Annotation信息来生成原代码，xml文件等等.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运行时处理&lt;/strong&gt; — 有一些annotation甚至可以在程序运行时被检测，使用.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>java反射学习</title>
+    <link href="http://yoursite.com/2017/06/12/java%E5%8F%8D%E5%B0%84%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/06/12/java反射学习/</id>
+    <published>2017-06-12T08:04:01.654Z</published>
+    <updated>2017-06-15T04:38:46.946Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ol>
+<li>reflection 反射映象倒影</li>
+<li>introspection 内省内观反省</li>
+<li>constructor 构造方法</li>
+<li>method 方法</li>
+<li>field 属性（变量）</li>
+</ol>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li>获取类的三种方法Class c =<ul>
+<li>Class.class</li>
+<li>obj.getClass();</li>
+<li>Class.from(“com.lg.test”)</li>
+<li>获取父类也能获取class childClass.getSuperclass();<a id="more"></a></li>
+</ul>
+</li>
+<li><p>获取class后创建对象<code>newInstance</code></p>
+<ul>
+<li>c.newInstance()<code>需要有无参的构造函数</code></li>
+</ul>
+</li>
+<li><p>获取class的属性（field）</p>
+<ul>
+<li>c.getField()</li>
+</ul>
+</li>
+<li><p>暴力反射</p>
+<blockquote>
+<p>//打破封装<br>  c.setAccessible(true); //使用反射机制可以打破封装性，导致了java对象的属性不安全。 </p>
+</blockquote>
+</li>
+<li><p>其他</p>
+<ul>
+<li>getDeclaredField 获取class的全部属性</li>
+<li>getField 获取public的属性</li>
+<li>同样适用的还有</li>
+</ul>
+<ol>
+<li>getDeclaredMethods getMethods</li>
+<li>getDeclaredConstructors获取构造方法</li>
+</ol>
+</li>
+<li><p>方法</p>
+<ul>
+<li>getInterfaces获取实现的接口</li>
+<li>constructor.getParameterTypes()获取构造方法中的参数类型</li>
+<li>Modifier.toString(XXX.getModifiers())获取修饰符（可以是类，方法，field，其中有private public static final）</li>
+<li>getDeclaredAnnotations()获取注解</li>
+</ul>
+</li>
+</ol>
+<h2 id="推荐文章"><a href="#推荐文章" class="headerlink" title="推荐文章"></a>推荐文章</h2><ul>
+<li><a href="http://blog.csdn.net/liujiahan629629/article/details/18013523" target="_blank" rel="external">简单</a></li>
+<li><a href="http://blog.csdn.net/liushuijinger/article/details/15378475" target="_blank" rel="external">全</a></li>
+<li><a href="http://blog.csdn.net/AlbenXie/article/details/70225229" target="_blank" rel="external">实用</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;名词解释&quot;&gt;&lt;a href=&quot;#名词解释&quot; class=&quot;headerlink&quot; title=&quot;名词解释&quot;&gt;&lt;/a&gt;名词解释&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;reflection 反射映象倒影&lt;/li&gt;
+&lt;li&gt;introspection 内省内观反省&lt;/li&gt;
+&lt;li&gt;constructor 构造方法&lt;/li&gt;
+&lt;li&gt;method 方法&lt;/li&gt;
+&lt;li&gt;field 属性（变量）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;方法&quot;&gt;&lt;a href=&quot;#方法&quot; class=&quot;headerlink&quot; title=&quot;方法&quot;&gt;&lt;/a&gt;方法&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;获取类的三种方法Class c =&lt;ul&gt;
+&lt;li&gt;Class.class&lt;/li&gt;
+&lt;li&gt;obj.getClass();&lt;/li&gt;
+&lt;li&gt;Class.from(“com.lg.test”)&lt;/li&gt;
+&lt;li&gt;获取父类也能获取class childClass.getSuperclass();
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>提升markdown的中文输入效率</title>
+    <link href="http://yoursite.com/2017/06/12/%E4%B8%AD%E6%96%87%E4%B8%8Bmarkdown%E8%BE%93%E5%85%A5%E8%8B%B1%E6%96%87%E7%AC%A6%E5%8F%B7/"/>
+    <id>http://yoursite.com/2017/06/12/中文下markdown输入英文符号/</id>
+    <published>2017-06-12T02:11:50.969Z</published>
+    <updated>2017-06-15T04:39:52.410Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="http://weishu.me/2016/02/01/avoid-switching-keyboard-in-markdown/" target="_blank" rel="external"><font color="#3FB47B">转载自weishu</font></a></p>
+<h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><ul>
+<li>中文状态下总要切换输入法才能输入[]()`*!-，需要提高效率<a id="more"></a>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2></li>
+</ul>
+<ol>
+<li>安装<a href="https://autohotkey.com/download/" target="_blank" rel="external"><code>AutoHotKey</code></a></li>
+<li><p>下载大神编写的键盘映射<a href="https://gist.github.com/tiann/9068fd34f44337e8dcfb" target="_blank" rel="external"><code>markdown_keyboard_remapping.ahk</code></a></p>
+<pre><code>!`::  Send {Asc 096} ;output `~
+
+!+`:: Send % &quot;{ASC 0&quot; . Asc(&quot;~&quot;) . &quot;}&quot;
+
+!-:: Send % &quot;{ASC 0&quot; . Asc(&quot;-&quot;) . &quot;}&quot; ; output -_
+
+!+-:: Send % &quot;{ASC 0&quot; . Asc(&quot;_&quot;) . &quot;}&quot;
+
+![:: Send % &quot;{ASC 0&quot; . Asc(&quot;[&quot;) . &quot;}&quot; ; output [{
+
+!+[:: Send % &quot;{ASC 0&quot; . Asc(&quot;{&quot;) . &quot;}&quot;
+
+!]:: Send % &quot;{ASC 0&quot; . Asc(&quot;]&quot;) . &quot;}&quot; ; output ]}
+
+!+]:: Send % &quot;{ASC 0&quot; . Asc(&quot;}&quot;) . &quot;}&quot;
+
+; ----------------------------------------------
+
+!1:: Send % &quot;{ASC 0&quot; . Asc(&quot;!&quot;) . &quot;}&quot;
+
+!3:: Send % &quot;{ASC 0&quot; . Asc(&quot;#&quot;) . &quot;}&quot;
+
+!8:: Send % &quot;{ASC 0&quot; . Asc(&quot;*&quot;) . &quot;}&quot;
+
+!9:: Send % &quot;{ASC 0&quot; . Asc(&quot;(&quot;) . &quot;}&quot;
+
+!0:: Send % &quot;{ASC 0&quot; . Asc(&quot;)&quot;) . &quot;}&quot;
+</code></pre></li>
+<li><p>在win10下添加开机启动，win+r（cmd）输入shell:startup，添加ahk文件即可</p>
+</li>
+</ol>
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><blockquote>
+<p>alt ＋ 数字键/符号键；比如想输入[，可以在任何输入法下直接使用alt ＋ [；如果想输入#，可以直接使用alt ＋ 3。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://weishu.me/2016/02/01/avoid-switching-keyboard-in-markdown/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;font color=&quot;#3FB47B&quot;&gt;转载自weishu&lt;/font&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;问题描述：&quot;&gt;&lt;a href=&quot;#问题描述：&quot; class=&quot;headerlink&quot; title=&quot;问题描述：&quot;&gt;&lt;/a&gt;问题描述：&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;中文状态下总要切换输入法才能输入[]()`*!-，需要提高效率
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Rx系列学习</title>
+    <link href="http://yoursite.com/2017/06/09/rx%E7%B3%BB%E5%88%97%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/06/09/rx系列学习/</id>
+    <published>2017-06-09T11:01:44.099Z</published>
+    <updated>2017-06-15T04:39:05.043Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="一-简单学习-原文-详解"><a href="#一-简单学习-原文-详解" class="headerlink" title="一.简单学习 原文 详解"></a>一.简单学习 <a href="http://www.cnblogs.com/huolongluo/p/6585724.html" target="_blank" rel="external">原文</a> <a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">详解</a></h2><h3 id="1-原理解释"><a href="#1-原理解释" class="headerlink" title="1.原理解释"></a><font color="#35d48f">1.原理解释</font></h3><pre><code>观察者：Observer；
+被观察者：Observable；
+订阅（或注册）：subscribe()。
+</code></pre><h3 id="2-使用代码事例"><a href="#2-使用代码事例" class="headerlink" title="2.使用代码事例"></a><font color="#35d48f"><strong>2.使用代码事例</strong></font></h3><a id="more"></a>
+<ul>
+<li><p>演示代码</p>
+<pre><code>//使用Observable.create()创建被观察者
+Observable mObservable = Observable.create(new ObservableOnSubscribe() {
+            @Override
+            public void subscribe(ObservableEmitter e) throws Exception {
+                e.onNext(&quot;Hello&quot;);
+                e.onNext(&quot;World&quot;);
+                e.onComplete();
+            }
+        });
+
+//创建一个观察者
+Observer mObserver = new Observer() {
+            @Override
+            public void onSubscribe(Disposable d) {
+                //这是新加入的方法，在订阅后发送数据之前，
+                //回首先调用这个方法，而Disposable可用于取消订阅
+
+            }
+
+            @Override
+            public void onNext(Object o) {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        };
+ //订阅
+mObservable.subscribe(mObserver);
+</code></pre></li>
+<li><p>高级点：Observable创建方式</p>
+<blockquote>
+<p>使用Observable.just()创建被观察者</p>
+</blockquote>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;World&quot;);
+</code></pre><blockquote>
+<p>使用Observable.from()创建被观察者</p>
+</blockquote>
+<pre><code>String [] words = {&quot;Hello&quot;, &quot;World&quot;};
+Observable observable3 = Observable.from(words);
+
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+list.add(&quot;Hellow&quot;);
+list.add(&quot;Wrold&quot;);
+Observable observable4 = Observable.from(list);
+</code></pre></li>
+<li><p>Observer被装饰为Subscriber</p>
+</li>
+<li>action（其实是将它转换为一个Subscriber）<blockquote>
+<p><strong>Action0</strong>： 它只有一个方法 call()，这个方法是无参无返回值的；由于 onCompleted() 方法也是无参无返回值的，因此 Action0 可以被当成一个包装对象，将 onCompleted() 的内容打包起来将自己作为一个参数传入 subscribe() 以实现不完整定义的回调。</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>Ation1</strong>：它同样只有一个方法 call(T param)，这个方法也无返回值，但有一个参数；与 Action0 同理，由于 onNext(T obj) 和 onError(Throwable error) 也是单参数无返回值的，因此 Action1 可以将 onNext(obj)和 onError(error) 打包起来传入 subscribe() 以实现不完整定义的回调</p>
+</blockquote>
+<ul>
+<li>Func1与action相似只是封装的为有返回值的Observable，使用map包裹</li>
+<li>flatMap解决map中的循环嵌套</li>
+<li>其他操作：filter：集合进行过滤each：遍历集合take：取出集合中的前几个skip：跳过前几个元素</li>
+<li><p>加上线程的代码：这才是真正使用时的代码</p>
+<pre><code>Observable.just(&quot;Hello&quot;, &quot;Wrold&quot;)
+        .subscribeOn(Schedulers.newThread())//指定：在新的线程中发起
+        .observeOn(Schedulers.io())         //指定：在io线程中处理
+        .map(new Func1&lt;String, String&gt;() {
+            @Override
+            public String call(String s) {
+                return handleString(s);       //处理数据
+            }
+        })
+        .observeOn(AndroidSchedulers.mainThread())//指定：在主线程中处理
+        .subscribe(new Action1&lt;String&gt;() {
+            @Override
+            public void call(String s) {
+                show(s);                       //消费事件
+            }
+        });
+//observeOn() 指定的是它之后的操作所在的线程,observeOn()被调用了两次，分别指定了map的处理的现场和消费事件show(s)的线程
+</code></pre></li>
+<li>线程的标识</li>
+</ul>
+<blockquote>
+<ul>
+<li>Schedulers.immediate()：直接在当前线程运行，相当于不指定线程。这是默认的 Scheduler。</li>
+<li>Schedulers.newThread()：总是启用新线程，并在新线程执行操作。</li>
+<li>Schedulers.io()： I/O 操作（读写文件、读写数据库、网络信息交互等）所使用的 Scheduler。行为模式和 newThread() 差不多，区别在于 io() 的内部实现是是用一个无数量上限的线程池，可以重用空闲的线程，因此多数情况下 io() 比 newThread() 更有效率。不要把计算工作放在 io() 中，可以避免创建不必要的线程。</li>
+<li>Schedulers.computation()：计算所使用的 Scheduler。这个计算指的是 CPU 密集型计算，即不会被 I/O 等操作限制性能的操作，例如图形的计算。这个 Scheduler 使用的固定的线程池，大小为 CPU 核数。不要把 I/O 操作放在 computation() 中，否则 I/O 操作的等待时间会浪费 CPU。</li>
+<li>AndroidSchedulers.mainThread()：它指定的操作将在 Android 主线程运行。</li>
+</ul>
+</blockquote>
+<p><a href="http://www.jianshu.com/p/517c3f4c7bc1#" target="_blank" rel="external">值得推荐的文章</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;一-简单学习-原文-详解&quot;&gt;&lt;a href=&quot;#一-简单学习-原文-详解&quot; class=&quot;headerlink&quot; title=&quot;一.简单学习 原文 详解&quot;&gt;&lt;/a&gt;一.简单学习 &lt;a href=&quot;http://www.cnblogs.com/huolongluo/p/6585724.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;原文&lt;/a&gt; &lt;a href=&quot;http://gank.io/post/560e15be2dca930e00da1083&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;详解&lt;/a&gt;&lt;/h2&gt;&lt;h3 id=&quot;1-原理解释&quot;&gt;&lt;a href=&quot;#1-原理解释&quot; class=&quot;headerlink&quot; title=&quot;1.原理解释&quot;&gt;&lt;/a&gt;&lt;font color=&quot;#35d48f&quot;&gt;1.原理解释&lt;/font&gt;&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;观察者：Observer；
+被观察者：Observable；
+订阅（或注册）：subscribe()。
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;2-使用代码事例&quot;&gt;&lt;a href=&quot;#2-使用代码事例&quot; class=&quot;headerlink&quot; title=&quot;2.使用代码事例&quot;&gt;&lt;/a&gt;&lt;font color=&quot;#35d48f&quot;&gt;&lt;strong&gt;2.使用代码事例&lt;/strong&gt;&lt;/font&gt;&lt;/h3&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>android studio使用技巧</title>
+    <link href="http://yoursite.com/2017/06/08/android%20studio%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
+    <id>http://yoursite.com/2017/06/08/android studio使用技巧/</id>
+    <published>2017-06-08T09:26:42.863Z</published>
+    <updated>2017-06-15T04:38:15.603Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="更改log的颜色，以及studio的样式"><a href="#更改log的颜色，以及studio的样式" class="headerlink" title="更改log的颜色，以及studio的样式"></a>更改log的颜色，以及studio的样式</h2><blockquote>
+<ul>
+<li>在setting中修改colors&amp;fonts下的android log，用不同颜色区分不同的log</li>
+<li>安装插件material，更改studio的样式</li>
+</ul>
+</blockquote>
+<h2 id="添加code-style"><a href="#添加code-style" class="headerlink" title="添加code style"></a>添加code style</h2><blockquote>
+<ul>
+<li>推荐 <a href="https://github.com/square/java-code-styles" target="_blank" rel="external">square java</a> </li>
+<li>使用很简单下载后执行脚本，自动检测studio的配置位置，添加自带的style，然后在setting中选中square<a id="more"></a>
+<h2 id="查找快捷键或操作，常用快捷键"><a href="#查找快捷键或操作，常用快捷键" class="headerlink" title="查找快捷键或操作，常用快捷键"></a>查找快捷键或操作，常用快捷键</h2></li>
+<li>ctrl+shift+a <code>操作</code></li>
+<li>ctrl+n <code>打开类</code></li>
+<li>ctrl+shift+n <code>打开任意文件</code></li>
+<li>ctrl+shift+e <code>最近打开的文件</code></li>
+<li>ctrl+shift+m <code>方法括号对应的位置</code></li>
+<li>ctrl+shift+u <code>string大小写转换</code></li>
+<li>ctrl+i <code>引入实现接口的方法</code></li>
+<li>alt+enter <code>光标在字符串上，可以填充到res的xml中</code></li>
+<li>ctrl+shift+u <code>大小写转换</code></li>
+<li>ctrl+shift+”+/-“ <code>折叠展开</code></li>
+<li>f11/shift+f11 <code>书签，快速跳转位置</code> ctrl+f11为书签标记号用ctrl+数字 <code>跳转</code><img src="http://upload-images.jianshu.io/upload_images/1483670-f363c6ef15c1d0d9.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>Ctrl + Shift + Backspace﻿ <code>返回上一次编辑的位置</code></li>
+<li>alt+up/down <code>在方法和内部类之间跳转</code></li>
+<li>alt+数字 <code>根据编号打开面板</code></li>
+<li>ctrl+shift+i <code>快速查看定义</code><img src="http://upload-images.jianshu.io/upload_images/1483670-969dc42edee40b6f.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>Ctrl + Shift + E <code>最近修改的文件</code><img src="http://upload-images.jianshu.io/upload_images/1483670-f61ad3ffce4ee729.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+e <code>最近访问的文件</code><img src="http://upload-images.jianshu.io/upload_images/1483670-b7c004104af0b170.gif?imageMogr2/auto-orient/strip" alt=""><br>*ctrl+alt+home <code>查看相关布局</code><img src="http://upload-images.jianshu.io/upload_images/1483670-20955b07b8044e0f.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>alt+f1 <code>列出常用的标签mylove 8</code> <img src="http://upload-images.jianshu.io/upload_images/1483670-7cd8b963bd6da498.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+f12 <code>在类的方法和内部类中查找</code><img src="http://upload-images.jianshu.io/upload_images/1483670-d703377ad65a679b.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+tab <code>切换</code><img src="http://upload-images.jianshu.io/upload_images/1483670-f4970bb308302b67.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>alt+j <code>使用时选择要修改的string，然后就会出现多个光标</code>！<a href=""></a></li>
+<li>ctrl+d <code>复制行</code></li>
+<li>ctrl+alt+m <code>提取方法</code><img src="http://upload-images.jianshu.io/upload_images/1483670-468623f04381386f.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+alt+p <code>提取方法的参数</code><img src="http://upload-images.jianshu.io/upload_images/1483670-e278e9e4e9e2fd9c.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+shift+j <code>合并文字或行</code><img src="http://upload-images.jianshu.io/upload_images/1483670-c3b3f2e351a679f8.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+j <code>动态模板</code><a href="">所以应该在模版中添加说明</a></li>
+<li>ctrl+shift+up/down <code>上下移动方法</code><img src="http://upload-images.jianshu.io/upload_images/1483670-930bea463787313d.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+alt+t <code>快速包裹代码</code><img src="http://upload-images.jianshu.io/upload_images/1483670-383f8fcf39e6f30e.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+shift+del<code>快速删除包裹</code><img src="http://upload-images.jianshu.io/upload_images/1483670-a4258da244a0b536.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+alt+h <code>调用层级树弹窗</code><img src="http://upload-images.jianshu.io/upload_images/1483670-c58e2f0ed8eaa5c5.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>ctrl+w <code>扩展选中区域</code><img src="http://www.developerphil.com/assets/12-expand_shrink_selection.gif" alt=""></li>
+<li>ctrl+o <code>复写方法</code></li>
+</ul>
+</blockquote>
+<h2 id="studio翻译"><a href="#studio翻译" class="headerlink" title="studio翻译"></a>studio翻译</h2><blockquote>
+<ul>
+<li>Compare With Clipboard 与剪切板(<font color="#00ffff">最近一次的数据</font>)对比</li>
+</ul>
+</blockquote>
+<h2 id="debug分析"><a href="#debug分析" class="headerlink" title="debug分析"></a>debug分析</h2><blockquote>
+<ul>
+<li>Menu → Analyze → Analyze Stacktrace分析堆信息，将log打印的堆信息复制进去就可以看了，还可以使用插件ProGuard Unscramble Plugin查看混淆后的代码<img src="http://upload-images.jianshu.io/upload_images/1483670-f32bcd25656ec054.gif?imageMogr2/auto-orient/strip" alt=""></li>
+<li>alt+单击表达式 审查变量</li>
+<li><p>日志断点（Logging Breakpoints）</p>
+<pre><code>描述：这是一种打印日志而不是暂停的断点，当你想打印一些日志信息但是不想添加log
+代码后重新部署项目，这是一个非常有用的操作。
+调用：在断点上右键，取消Suspend
+的勾选，然后勾选上Log evaluated Expression，并在输入框中输入你要打印的日志信息。
+</code></pre><p><img src="http://upload-images.jianshu.io/upload_images/1483670-f00f5d8eabde8887.gif?imageMogr2/auto-orient/strip" alt=""></p>
+</li>
+<li>alt+f10 <code>快速回归断点处</code></li>
+<li>Ctrl + Alt + Shift + F8 <code>临时断点</code>在第一次调用后移出<img src="http://upload-images.jianshu.io/upload_images/1483670-d4b3923a420fc078.gif?imageMogr2/auto-orient/strip" alt=""></li>
+</ul>
+</blockquote>
+<h2 id="android-studio插件推荐"><a href="#android-studio插件推荐" class="headerlink" title="android studio插件推荐"></a>android studio插件推荐</h2><ul>
+<li>codeGlance 同款sublime3的预览</li>
+<li>key promoter 快捷键的提示插件，有点强制使用的用意</li>
+<li>android-postfix-plugin 写toast log方便的东西</li>
+<li>translation 翻译插件</li>
+<li>wakatime 工作时间，然后在<a href="https://wakatime.com" target="_blank" rel="external">官网查看</a><img src="/uploads/工作时间.png" alt=""></li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>根据提示代码补全的三种方式(<code>enter</code>    <code>tab</code>    <code>.或;</code>)后者相当于继续快链或结束</li>
+<li>enter vs tab</li>
+</ul>
+<blockquote>
+<pre><code>使用Enter时：从光标处插入补全的代码，对原来的代码不做任何操作。
+使用Tab时：从光标处插入补全的代码，并删除后面的代码，直到遇到点号、圆括号、分号或空格为止。
+</code></pre></blockquote>
+<ul>
+<li>list.for + enter即生成以list为参数的for循环</li>
+<li></li>
+</ul>
+<p><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2016/1116/6776.html" target="_blank" rel="external">详情.1</a></p>
+<p><a href="http://www.jianshu.com/p/8accfeefc182" target="_blank" rel="external">详情.2</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;更改log的颜色，以及studio的样式&quot;&gt;&lt;a href=&quot;#更改log的颜色，以及studio的样式&quot; class=&quot;headerlink&quot; title=&quot;更改log的颜色，以及studio的样式&quot;&gt;&lt;/a&gt;更改log的颜色，以及studio的样式&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;在setting中修改colors&amp;amp;fonts下的android log，用不同颜色区分不同的log&lt;/li&gt;
+&lt;li&gt;安装插件material，更改studio的样式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;添加code-style&quot;&gt;&lt;a href=&quot;#添加code-style&quot; class=&quot;headerlink&quot; title=&quot;添加code style&quot;&gt;&lt;/a&gt;添加code style&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;推荐 &lt;a href=&quot;https://github.com/square/java-code-styles&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;square java&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;使用很简单下载后执行脚本，自动检测studio的配置位置，添加自带的style，然后在setting中选中square
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>微信公众号历史文章的添加</title>
+    <link href="http://yoursite.com/2017/05/24/%E5%BE%AE%E4%BF%A1%E4%B8%AA%E4%BA%BA%E5%85%AC%E4%BC%97%E5%8F%B7%E6%B7%BB%E5%8A%A0%E5%8E%86%E5%8F%B2%E6%B6%88%E6%81%AF/"/>
+    <id>http://yoursite.com/2017/05/24/微信个人公众号添加历史消息/</id>
+    <published>2017-05-24T09:51:21.236Z</published>
+    <updated>2017-06-15T04:39:40.370Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节"><a href="#一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节" class="headerlink" title="一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节"></a>一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，<a href="http://jingyan.baidu.com/article/08b6a591bee98214a9092268.html" target="_blank" rel="external">具体细节</a></h5><a id="more"></a>
+<p>过程其实不难：</p>
+<blockquote>
+<ul>
+<li>在菜点添加“历史文章”</li>
+<li>选择跳转网页，下面的从公众号图文消息中选择</li>
+<li>选择历史消息即可</li>
+</ul>
+</blockquote>
+<h2 id="其实很多事情当一时没有办法时，慢慢的你就会留意去解决这些问题！"><a href="#其实很多事情当一时没有办法时，慢慢的你就会留意去解决这些问题！" class="headerlink" title="其实很多事情当一时没有办法时，慢慢的你就会留意去解决这些问题！"></a>其实很多事情当一时没有办法时，慢慢的你就会留意去解决这些问题！</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节&quot;&gt;&lt;a href=&quot;#一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节&quot; class=&quot;headerlink&quot; title=&quot;一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，具体细节&quot;&gt;&lt;/a&gt;一直被微信公众号个人账号无法添加链接困扰，今天突然发现一个16年创建的公众号居然有历史消息，才发现原来以前的发送的历史消息是可以绑定下面的tab的，&lt;a href=&quot;http://jingyan.baidu.com/article/08b6a591bee98214a9092268.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;具体细节&lt;/a&gt;&lt;/h5&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>url启动activity</title>
+    <link href="http://yoursite.com/2017/05/20/url%E5%90%AF%E5%8A%A8activity/"/>
+    <id>http://yoursite.com/2017/05/20/url启动activity/</id>
+    <published>2017-05-20T02:40:09.980Z</published>
+    <updated>2017-06-15T04:39:30.066Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id=""><a href="#" class="headerlink" title=""></a><category android:name="android.intent.category.BROWSABLE"></category></h3><blockquote>
+<p>可以做到通过超链接打开Activity并传入参数<br>其实就是scheme匹配的唤醒格式</p>
+</blockquote>
+<ul>
+<li><p>代码如下<br><strong>mainfest ：</strong></p>
+<pre><code> &lt;intent-filter&gt;
+&lt;action android:name=&quot;android.intent.action.VIEW&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.DEFAULT&quot; /&gt;
+&lt;category android:name=&quot;android.intent.category.BROWSABLE&quot; /&gt;
+&lt;data android:scheme=&quot;my.special.scheme&quot; /&gt;
+  &lt;/intent-filter&gt;
+</code></pre><a id="more"></a>  
+<p><strong>html :</strong></p>
+  <div id="header"><br>   <a href="my.special.scheme://192.168.2.126/param1/param2" target="_blank" rel="external">link open app</a><br>  </div> 
+
+<p><strong>activity :</strong></p>
+<pre><code>Uri data = getIntent().getData();
+String scheme = data.getScheme();
+String host = data.getHost();
+List&lt;String&gt; params = data.getPathSegments();
+String first = params.get(0);
+String second = params.get(1);
+Log. e(&quot;LG&quot;, &quot;onResume::&quot;+&quot;param1 : &quot; + first + &quot;   param2 : &quot; + second + &quot;   scheme : &quot; + scheme + &quot;   host : &quot; + host);
+</code></pre><p><strong>log :</strong></p>
+<p>  LG: onCreate::param1 : param1   param2 : param2   scheme : my.special.scheme   host : 192.168.2.126<br>  LG: onResume::param1 : param1   param2 : param2   scheme : my.special.scheme   host : 192.168.2.126</p>
+</li>
+</ul>
+<p><a href="http://blog.csdn.net/tu_bingbing/article/details/8911373" target="_blank" rel="external">原文地址</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;category android:name=&quot;android.intent.category.BROWSABLE&quot;&gt;&lt;/category&gt;&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;可以做到通过超链接打开Activity并传入参数&lt;br&gt;其实就是scheme匹配的唤醒格式&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;代码如下&lt;br&gt;&lt;strong&gt;mainfest ：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; &amp;lt;intent-filter&amp;gt;
+&amp;lt;action android:name=&amp;quot;android.intent.action.VIEW&amp;quot; /&amp;gt;
+&amp;lt;category android:name=&amp;quot;android.intent.category.DEFAULT&amp;quot; /&amp;gt;
+&amp;lt;category android:name=&amp;quot;android.intent.category.BROWSABLE&amp;quot; /&amp;gt;
+&amp;lt;data android:scheme=&amp;quot;my.special.scheme&amp;quot; /&amp;gt;
+  &amp;lt;/intent-filter&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>activity启动模式分析</title>
+    <link href="http://yoursite.com/2017/05/18/activity%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F%E6%B7%B1%E6%9E%90/"/>
+    <id>http://yoursite.com/2017/05/18/activity启动模式深析/</id>
+    <published>2017-05-18T02:01:33.807Z</published>
+    <updated>2017-06-15T04:37:58.959Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="standard：标准模式"><a href="#standard：标准模式" class="headerlink" title="standard：标准模式"></a>standard：标准模式</h2><p>  任何activity都会新建，按生命周期执行,不会执行onnewintent的<br><img src="http://chuantu.biz/t5/88/1495019055x2890174321.png" alt=""><br><a id="more"></a></p>
+<h2 id="singleTop：栈顶复用模式"><a href="#singleTop：栈顶复用模式" class="headerlink" title="singleTop：栈顶复用模式"></a>singleTop：栈顶复用模式</h2><p>  只有自己启动自己时候才会不按生命周期执行，而是栈中的当前activity执行onpause，然后onnewintent</p>
+<h2 id="singleTask：栈内复用模式"><a href="#singleTask：栈内复用模式" class="headerlink" title="singleTask：栈内复用模式"></a>singleTask：栈内复用模式</h2><p>  同上只是判断的栈顶换为栈中，也是走onnewIntent不走oncreate，还具备clean top的效果</p>
+<blockquote>
+<p>启动不同的任务栈</p>
+</blockquote>
+<pre><code>   &lt;!--android:allowTaskReparenting=&quot;true&quot;--&gt;
+&lt;activity android:name=&quot;.SecondActivity&quot;
+    android:launchMode=&quot;singleTask&quot;
+    android:taskAffinity=&quot;com.lg.othertask&quot;
+    /&gt;
+无须在intent中.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+</code></pre><p><img src="http://chuantu.biz/t5/88/1495018894x2890174178.png" alt="img"></p>
+<h2 id="singleInstance：单实例模式"><a href="#singleInstance：单实例模式" class="headerlink" title="singleInstance：单实例模式"></a>singleInstance：单实例模式</h2><p>  增强型singletask，会为activity单独启动有一个任务栈，并且只要栈不被回收，走onnewintent不新建activity</p>
+<p><img src="http://chuantu.biz/t5/88/1495019004x2890174321.png" alt=""></p>
+<h3 id="方法记录"><a href="#方法记录" class="headerlink" title="方法记录"></a>方法记录</h3><ul>
+<li>adb shell dumpsys activity</li>
+<li>在terminal中查找 Running activities (most recent first):</li>
+</ul>
+<p><a href="https://juejin.im/post/591bd09a2f301e006bcd6e43" target="_blank" rel="external">阅读原文</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;standard：标准模式&quot;&gt;&lt;a href=&quot;#standard：标准模式&quot; class=&quot;headerlink&quot; title=&quot;standard：标准模式&quot;&gt;&lt;/a&gt;standard：标准模式&lt;/h2&gt;&lt;p&gt;  任何activity都会新建，按生命周期执行,不会执行onnewintent的&lt;br&gt;&lt;img src=&quot;http://chuantu.biz/t5/88/1495019055x2890174321.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>gradle学习笔记</title>
+    <link href="http://yoursite.com/2017/05/15/gradle%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2017/05/15/gradle学习笔记/</id>
+    <published>2017-05-15T08:34:00.218Z</published>
+    <updated>2017-06-15T04:38:29.671Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、gradle依赖规则group，name和version"><a href="#一、gradle依赖规则group，name和version" class="headerlink" title="一、gradle依赖规则group，name和version"></a>一、gradle依赖规则group，name和version</h3><pre><code>例如
+compile &apos;com.google.code.gson:gson:2.3&apos;
+compile group: &apos;com.google.code.gson&apos;, name: &apos;gson&apos;, version:&apos;2.3&apos;
+</code></pre><h3 id="二、gradle的三种仓库"><a href="#二、gradle的三种仓库" class="headerlink" title="二、gradle的三种仓库"></a>二、gradle的三种仓库</h3><blockquote>
+<p>mavenCentral()maven网络仓库（中心仓库）<br>jcenter()jcenter是maven中心库的一个分支<br>mavenLocal()maven本地仓库<br>Ivy仓库 需要权限的仓库<br><a id="more"></a><br>    repositories {<br>       maven {<br>           url “<a href="http://repo.acmecorp.com/maven2" target="_blank" rel="external">http://repo.acmecorp.com/maven2</a>“<br>           credentials {<br>               username ‘user’<br>               password ‘secretpassword’//最好把隐私信息放在properties中<br>           }<br>        }<br>    }</p>
+</blockquote>
+<h3 id="三、依赖包"><a href="#三、依赖包" class="headerlink" title="三、依赖包"></a>三、依赖包</h3><ul>
+<li><p>jar</p>
+<pre><code>dependencies {
+   compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+}
+</code></pre></li>
+<li><p>so</p>
+</li>
+<li>aar</li>
+</ul>
+<h3 id="四、依赖配置"><a href="#四、依赖配置" class="headerlink" title="四、依赖配置"></a>四、依赖配置</h3><h4 id="1-静态依赖"><a href="#1-静态依赖" class="headerlink" title="1.静态依赖"></a>1.静态依赖</h4><ul>
+<li><p>compile是默认的那个，其含义是包含所有的依赖包，即在APK里，compile的依赖会存在。</p>
+</li>
+<li><p>apk的意思是apk中存在，但是不会加入编译中，这个貌似用的比较少。</p>
+</li>
+<li><p>provided的意思是提供编译支持，但是不会写入apk。</p>
+</li>
+<li><p>testCompile和androidTestCompile会添加额外的library支持针对测试。</p>
+<h4 id="2-动态依赖"><a href="#2-动态依赖" class="headerlink" title="2.动态依赖"></a>2.动态依赖</h4></li>
+<li>使用+用来标识版本号获取最新的</li>
+</ul>
+<h3 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h3><pre><code>org.gradle.parallel=true 可以加快构建前提内存够大
+ext应该是指后缀为 或者 定义变量同def
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、gradle依赖规则group，name和version&quot;&gt;&lt;a href=&quot;#一、gradle依赖规则group，name和version&quot; class=&quot;headerlink&quot; title=&quot;一、gradle依赖规则group，name和version&quot;&gt;&lt;/a&gt;一、gradle依赖规则group，name和version&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;例如
+compile &amp;apos;com.google.code.gson:gson:2.3&amp;apos;
+compile group: &amp;apos;com.google.code.gson&amp;apos;, name: &amp;apos;gson&amp;apos;, version:&amp;apos;2.3&amp;apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;二、gradle的三种仓库&quot;&gt;&lt;a href=&quot;#二、gradle的三种仓库&quot; class=&quot;headerlink&quot; title=&quot;二、gradle的三种仓库&quot;&gt;&lt;/a&gt;二、gradle的三种仓库&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;mavenCentral()maven网络仓库（中心仓库）&lt;br&gt;jcenter()jcenter是maven中心库的一个分支&lt;br&gt;mavenLocal()maven本地仓库&lt;br&gt;Ivy仓库 需要权限的仓库&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
