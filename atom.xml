@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-15T04:37:47.148Z</updated>
+  <updated>2017-10-19T07:53:50.100Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android细节记录</title>
+    <link href="http://yoursite.com/2017/10/19/android%E7%BB%86%E8%8A%82%E8%AE%B0%E5%BD%95/"/>
+    <id>http://yoursite.com/2017/10/19/android细节记录/</id>
+    <published>2017-10-19T07:52:09.217Z</published>
+    <updated>2017-10-19T07:53:50.100Z</updated>
+    
+    <content type="html"><![CDATA[<ol>
+<li>界面上不能同时使用两个ConstraintLayout，否则滑动控件滑动出现问题！</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;界面上不能同时使用两个ConstraintLayout，否则滑动控件滑动出现问题！&lt;/li&gt;
+&lt;/ol&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>annotation学习</title>
